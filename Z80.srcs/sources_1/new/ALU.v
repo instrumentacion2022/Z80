@@ -12,13 +12,13 @@ module ALU(
     
     //-----------------------------------------Operaciones-----------------------------------------//
     parameter ADD = 4'b0000;
-    parameter SBST = 4'b0001;
+    parameter SUB = 4'b0001;
     parameter AND = 4'b0010;
     parameter OR = 4'b0011;
     parameter XOR = 4'b0100;
     parameter CMP = 4'b0101;
-    parameter LSHF = 4'b0110;
-    parameter RSHF = 4'b0111;
+    parameter SHL = 4'b0110;
+    parameter SHR = 4'b0111;
     parameter INC = 4'b1000;
     parameter DCR = 4'b1001;
     parameter ROT = 4'b1010;
@@ -42,7 +42,7 @@ module ALU(
         case(Sel)
         ADD:        //SUMA
         Result = A+B;
-        SBST:        //RESTA
+        SUB:        //RESTA
         Result = A-B;
         AND:       //AND
         Result = A & B;
@@ -52,9 +52,9 @@ module ALU(
         Result = A ^ B;
         CMP:        //Comparador mayor
         Result = (A>=B) ? A:B;
-        LSHF:        // Corrimiento izquierda
+        SHL:        // Corrimiento izquierda
         Result = A<<1;
-        RSHF:        //Corrimiento derecha
+        SHR:        //Corrimiento derecha
         Result = A>>1;
         INC:        //Incremento
         Result = A+1;
@@ -72,9 +72,27 @@ module ALU(
          
         case(Sel)   //SUMA
         ADD:
-        Flags[0] =(A+B>255)? C :0;//Acarreo   
-        SBST:      
+        begin
+        Flags[0] =(A+B>255)? C :0;//Acarreo 
+        Flags[1]= 0;               //Reset de bandera ADD_SUB
+        Flags[4]= ((A[3:0]+B[3:0])>16)? H:0; //Medio acarreo ADD
+        Flags[6] =(Result==0)?Z:0;          //Bandera de cero
+        end  
+        SUB:
+        begin
         Flags[0] =(B>A)? C :0;         //Resta
+        Flags[1]= N;                //Bandera ADD_SUB ON
+        Flags[4]= ((A[3:0]-B[3:0])<0)? H:0;    //Medio acarreo SUB
+        Flags[6] =(Result==0)?Z:0;          //Bandera de cero
+        end
+        AND:
+        Flags[6] =(Result==0)?Z:0;          //Bandera de cero
+        OR:
+        Flags[6] =(Result==0)?Z:0;          //Bandera de cero
+        XOR:
+        Flags[6] =(Result==0)?Z:0;          //Bandera de cero
+        CMP:
+        Flags[6] =(A==B)?Z:0;          //Bandera de cero
         default:
         Flags=8'h00;
         endcase

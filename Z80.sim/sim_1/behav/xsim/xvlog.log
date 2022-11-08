@@ -2,5 +2,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Carlos/Z80/Z80.srcs/source
 INFO: [VRFC 10-311] analyzing module ALU
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/TestBench_ALU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module TestBench_ALU
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Carlos/Z80/Z80.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
