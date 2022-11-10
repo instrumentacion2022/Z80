@@ -6,7 +6,7 @@ module ALU(
     input [7:0] A, B,F_in,
     input [4:0] Sel,
     output [7:0] ALU_out, F_out
-    `include "/NEM.v"
+    `include "NEM.v"
     );
     
     reg[7:0] Result;
@@ -29,7 +29,7 @@ module ALU(
         ADD:                     //SUMA 
         Result = A+B;
         ADC:
-        Result = A+B;           //SUMA con acarreo
+        Result = A+B;          //SUMA con acarreo
         SUB:        //RESTA
         Result = A-B;
         SBC:

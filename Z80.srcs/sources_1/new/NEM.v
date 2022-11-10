@@ -23,8 +23,8 @@
 module NEM();
     
     //-----------------------------------------Operaciones 8 bits-----------------------------------------//
-    parameter ADD = 5'b00000;
-    parameter ADC = 5'b00001;
+    parameter ADC = 5'b00000;
+    parameter ADD = 5'b00001;
     parameter SUB = 5'b00010;
     parameter SBC = 5'b00011;
     parameter AND = 5'b00100;
