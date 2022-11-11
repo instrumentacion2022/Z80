@@ -6,11 +6,12 @@ module ALU(
     input [7:0] A, B,F_in,
     input [4:0] Sel,
     output [7:0] ALU_out, F_out
-    `include "NEM.v"
-    );
     
+    );
+    `include "NEM.vh"
     reg[7:0] Result;
     reg C,N,P_V,H,Z,S;
+        
 
   
    assign ALU_out = Result;
@@ -41,7 +42,7 @@ module ALU(
         XOR:       //XOR
         Result = A ^ B;
         CP:        //Comparador igual
-        Result = Result;       //El comparador no afecta el acumulador, sólo afecta la bandera
+        Result = A;       //El comparador no afecta el acumulador, sólo afecta la bandera
         INC:        //Incremento
         Result = A+1;
         DCR:        //Decremento

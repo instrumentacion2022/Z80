@@ -6,12 +6,12 @@ module TestBench_ALU();
 reg[7:0] A, B,F_in,Data_res;
 reg[4:0] Sel;
 reg [29:0]TstVector;
-reg COMP;
+reg[7:0] COMP;
 //Outputs
- wire[7:0] ALU_out, F_out;
+ wire[7:0]  ALU_out,F_out;
 integer infile, i;
 
-//Aux
+//Aux 
  ALU test_unit(
         A,B,F_in,Sel,ALU_out,F_out
 );
@@ -20,9 +20,10 @@ integer infile, i;
     //Primer caso A+B >255
 //        A = 8'hF0;
 //        B = 8'hFF;
-          F_in = 0;
+        F_in = 0;
         Sel = 4'd0;
         i =0;
+        COMP = ALU_out;
         infile = $fopen("Datain.csv","r");
        // $display("primera linea %b, ",TstVector);
         //#10;
@@ -34,34 +35,10 @@ integer infile, i;
         B = TstVector[20:13];
         Sel = TstVector[12:8];
         Data_res=TstVector[7:0];
+        assign COMP = ALU_out;      //Sin el assign el valor de la ALU pasa a COMP hasta el segundo ciclo
         #10;
-        COMP = (Data_res==ALU_out)?1:0;
+        //COMP = (TstVector[7:0]==ALU_out)?1:0; 
         end
         $fclose(infile);
-//        for (i=0; i<12;i=i+1)
-//        begin
-////            //$readmemb("Datain.csv", TstVector);
-////            A = TstVector[29];
-////            B = TstVector[22];
-////            F_in = 0;
-            
-//             #10;
-        
-//        end
-//       //Segundo caso B>A
-//        A = 8'hF0;
-//        B = 8'hF1;
-//        F_in = 0;
-//        Sel = 4'd0;
-//        i = 4'd0;
-//        #10;
-//        for (i=0; i<12;i=i+1)
-//        begin
-//             Sel = Sel +1;
-//             #10;
-        
-//        end
-        
-    
     end
 endmodule

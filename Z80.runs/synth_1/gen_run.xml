@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xczu7ev-ffvc1156-2-e" LaunchTime="1668065611">
   <File Type="PA-TCL" Name="NEM.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="NEM_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="NEM_reports.tcl"/>
   <File Type="RDS-RDS" Name="NEM.vds"/>
-  <File Type="RDS-UTIL" Name="NEM_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="NEM_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="NEM.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="NEM_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="NEM_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/NEM.v">

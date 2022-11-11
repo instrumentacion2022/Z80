@@ -4,6 +4,12 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 4 for port 'Sel' [C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/TestBench_ALU.v:16]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.TestBench_ALU
+WARNING: [XSIM 43-3373] "C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/TestBench_ALU.v" Line 33. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TestBench_ALU_behav
