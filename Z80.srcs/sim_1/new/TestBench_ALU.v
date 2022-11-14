@@ -3,13 +3,13 @@
 
 module TestBench_ALU();
 //Inputs
-reg[7:0] A, B,F_in,Data_res;
+reg[7:0] A, B,F_in,Data_res,Data_flags;
 reg[4:0] Sel;
-reg [29:0]TstVector;
-reg[7:0] COMP;
+reg [36:0]TstVector;
+reg COMP, COMP_F;
 //Outputs
  wire[7:0]  ALU_out,F_out;
-integer infile, i;
+integer infile, i,Errors, Errors_F;
 
 //Aux 
  ALU test_unit(
@@ -22,22 +22,38 @@ integer infile, i;
 //        B = 8'hFF;
         F_in = 0;
         Sel = 4'd0;
-        i =0;
-        COMP = ALU_out;
+        Errors = 0;
+        Errors_F = 0;
         infile = $fopen("Datain.csv","r");
        // $display("primera linea %b, ",TstVector);
         //#10;
         //while(!feof(infile))
-        for (i=0; i<80;i=i+1)
+        for (i=0; i<170;i=i+1)
         begin
         $fscanf(infile,"%b\n",TstVector);
-        A = TstVector[28:21];
-        B = TstVector[20:13];
-        Sel = TstVector[12:8];
-        Data_res=TstVector[7:0];
-        assign COMP = ALU_out;      //Sin el assign el valor de la ALU pasa a COMP hasta el segundo ciclo
+        A = TstVector[36:29];
+        B = TstVector[28:21];
+        Sel = TstVector[20:16];
+        Data_res=TstVector[15:8];
+        Data_flags = TstVector[7:0];
+        assign COMP = (Data_res==ALU_out)?1:0;      //Sin el assign el valor de la ALU pasa a COMP hasta el segundo ciclo
+        assign COMP_F = (Data_flags ==F_out)?1:0;
         #10;
-        //COMP = (TstVector[7:0]==ALU_out)?1:0; 
+        //COMP = (TstVector[7:0]==ALU_out)?1:0;
+        if (COMP == 1)
+        begin
+           Errors = Errors;
+        end
+        else begin
+            Errors = Errors + 1;
+        end
+        if (COMP_F == 1)
+        begin
+           Errors_F = Errors_F;
+        end
+        else begin
+            Errors_F = Errors_F + 1;
+        end
         end
         $fclose(infile);
     end

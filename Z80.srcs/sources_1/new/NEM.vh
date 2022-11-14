@@ -14,8 +14,8 @@
     parameter RL =  5'b01100;       //Rotación izquierda       
     parameter RR =  5'b01101;       //Rotación derecha
     parameter SLA = 5'b01110;
-    parameter SRA = 5'b01111;
-    parameter SRL = 5'b10000;
+    parameter SRL = 5'b01111;
+    parameter SRA = 5'b10000;
     parameter BIT = 5'b10001;
     parameter SET = 5'b10010;
     parameter RES = 5'b10011;
