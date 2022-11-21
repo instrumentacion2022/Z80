@@ -20,7 +20,7 @@ integer infile, i,Errors, Errors_F;
     //Primer caso A+B >255
 //        A = 8'hF0;
 //        B = 8'hFF;
-        F_in = 0;
+        F_in = 8'h00;
         Sel = 4'd0;
         Errors = 0;
         Errors_F = 0;
@@ -37,9 +37,11 @@ integer infile, i,Errors, Errors_F;
         Data_res=TstVector[15:8];
         Data_flags = TstVector[7:0];
         assign COMP = (Data_res==ALU_out)?1:0;      //Sin el assign el valor de la ALU pasa a COMP hasta el segundo ciclo
-        assign COMP_F = (Data_flags ==F_out)?1:0;
-        #10;
-        //COMP = (TstVector[7:0]==ALU_out)?1:0;
+        //assign COMP_F = (Data_flags ==F_out)?1:0;
+        assign COMP_F = (Data_flags[2] ==F_out[2])?1:0;
+        //assign Errors = (COMP==1)?Errors:Errors+1;
+         #10;
+        COMP = (TstVector[7:0]==ALU_out)?1:0;
         if (COMP == 1)
         begin
            Errors = Errors;
@@ -54,6 +56,8 @@ integer infile, i,Errors, Errors_F;
         else begin
             Errors_F = Errors_F + 1;
         end
+
+       
         end
         $fclose(infile);
     end
