@@ -12,20 +12,27 @@
     reg[7:0] Result;
     reg C,P_V,Z,S;
     //reg N,H;    
-
   
    assign ALU_out = Result;
    //Asignación de banderas 3 y 5 no se usan!
    //N y H eran banderas internas de la ALU de 4 bits,se eliminan
    assign F_out[0] = C | F_in[0];         //Carry 0
-   assign F_out[1] = 0 | F_in[1];       //Suma resta  -  No implementado
-   assign F_out[2] = P_V | F_in[2];       //Paridad o desbordamiento
-   assign F_out[3] = 0 | F_in[3];         // NO utilizada
+   assign F_out[1] =0 | F_in[1];       //Suma resta  -  No implementado
+   assign F_out[2] =P_V | F_in[2];       //Paridad o desbordamiento
+   assign F_out[3] =0 | F_in[3];         // NO utilizada
    assign F_out[4] = 0 | F_in[4];       //Medio acarreo - No implementado
-   assign F_out[5] = 0 | F_in[5];       //NO utilizada
+   assign F_out[5] =0 | F_in[5];       //NO utilizada
    assign F_out[6] = Z | F_in[6];         //Cero
    assign F_out[7] = S | F_in[7];         //Signo 
-       
+ 
+//    assign F_out[0] = C;         //Carry 0
+//   assign F_out[1] = 0;       //Suma resta  -  No implementado
+//   assign F_out[2] = P_V;       //Paridad o desbordamiento
+//   assign F_out[3] = 0 ;         // NO utilizada
+//   assign F_out[4] = 0 ;       //Medio acarreo - No implementado
+//   assign F_out[5] = 0 ;       //NO utilizada
+//   assign F_out[6] = Z ;         //Cero
+//   assign F_out[7] = S ;         //Signo       
 
     always @(*)
     begin

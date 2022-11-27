@@ -1,0 +1,389 @@
+$date
+   Thu Nov 24 17:21:11 2022
+$end
+$version
+  2022.2
+$end
+$timescale
+  1ps
+$end
+$scope module Z80CU_TB $end
+$var reg 1 ! CLK $end
+$var reg 1 " RST_TB $end
+$var reg 3 # ADR1 [2:0] $end
+$var reg 3 $ ADR2 [2:0] $end
+$var reg 8 % OPCODE_TB [7:0] $end
+$var wire 1 & MREQ_TB $end
+$var wire 1 ' RD_TB $end
+$var wire 1 ( WR_TB $end
+$var wire 1 ) ADR_EN_TB $end
+$var wire 1 * IO_EN_TB $end
+$var wire 1 + LD_INSTREG_TB $end
+$var wire 1 , LD_PC_TB $end
+$var wire 1 - INC_PC_TB $end
+$var wire 1 . WR_INT_TB $end
+$var wire 3 / WR_SEL_TB [2:0] $end
+$var wire 1 0 RD_INT_TB $end
+$var wire 3 1 RD_SEL_TB [2:0] $end
+$scope module DUT $end
+$var wire 1 2 iCLK $end
+$var wire 1 3 iRST $end
+$var wire 8 4 iOPCODE [7:0] $end
+$var wire 1 & oMREQ $end
+$var wire 1 ' oRD $end
+$var wire 1 ( oWR $end
+$var wire 1 ) oADR_EN $end
+$var wire 1 * oIO_EN $end
+$var wire 1 + oLD_INSTREG $end
+$var wire 1 , oLD_PC $end
+$var wire 1 - oINC_PC $end
+$var wire 1 . oWR_INT $end
+$var wire 3 / oWR_SEL [2:0] $end
+$var wire 1 0 oRD_INT $end
+$var wire 3 1 oRD_SEL [2:0] $end
+$var reg 16 5 rSTATE_D [15:0] $end
+$var reg 16 6 rSTATE_Q [15:0] $end
+$var reg 1 7 rMREQ $end
+$var reg 1 8 rRD $end
+$var reg 1 9 rWR $end
+$var reg 1 : rADR_EN $end
+$var reg 1 ; rIO_EN $end
+$var reg 1 < rLD_INSTREG $end
+$var reg 1 = rLD_PC $end
+$var reg 1 > rINC_PC $end
+$var reg 1 ? rWR_INT $end
+$var reg 3 @ rWR_SEL [2:0] $end
+$var reg 1 A rRD_INT $end
+$var reg 3 B rRD_SEL [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+b11 #
+b101 $
+b1011101 %
+0&
+0'
+0(
+0)
+0*
+0+
+0,
+0-
+0.
+b0 /
+00
+b0 1
+02
+03
+b1011101 4
+b1 5
+b0 6
+07
+08
+09
+0:
+0;
+0<
+0=
+0>
+0?
+b0 @
+0A
+b0 B
+$end
+#10000
+1!
+1&
+1'
+1)
+1*
+12
+b10 5
+b1 6
+17
+18
+1:
+1;
+#20000
+0!
+02
+#30000
+1!
+1+
+1-
+12
+b11 5
+b10 6
+1<
+1>
+#40000
+0!
+02
+#50000
+1!
+0&
+0'
+0)
+0*
+0+
+0-
+b11 /
+b101 1
+12
+b100 5
+b11 6
+07
+08
+0:
+0;
+0<
+0>
+b11 @
+b101 B
+#60000
+0!
+02
+#70000
+1!
+10
+12
+b101 5
+b100 6
+1A
+#80000
+0!
+02
+#90000
+1!
+1.
+12
+b0 5
+b101 6
+1?
+#100000
+0!
+b11110 %
+02
+b11110 4
+b0 5
+#110000
+1!
+0.
+b0 /
+00
+b0 1
+12
+b1 5
+b0 6
+0?
+b0 @
+0A
+b0 B
+#120000
+0!
+02
+#130000
+1!
+1&
+1'
+1)
+1*
+12
+b10 5
+b1 6
+17
+18
+1:
+1;
+#140000
+0!
+02
+#150000
+1!
+1+
+1-
+12
+b11 5
+b10 6
+1<
+1>
+#160000
+0!
+02
+#170000
+1!
+0&
+0'
+0)
+0*
+0+
+0-
+b11 /
+12
+b110 5
+b11 6
+07
+08
+0:
+0;
+0<
+0>
+b11 @
+#180000
+0!
+02
+#190000
+1!
+1&
+1*
+1-
+12
+b111 5
+b110 6
+17
+1;
+1>
+#200000
+0!
+02
+#210000
+1!
+1'
+1)
+0-
+1.
+12
+b0 5
+b111 6
+18
+1:
+0>
+1?
+#220000
+0!
+02
+#230000
+1!
+0&
+0'
+0)
+0*
+0.
+b0 /
+12
+b1 5
+b0 6
+07
+08
+0:
+0;
+0?
+b0 @
+b0 B
+#240000
+0!
+02
+#250000
+1!
+1&
+1'
+1)
+1*
+12
+b10 5
+b1 6
+17
+18
+1:
+1;
+#260000
+0!
+1"
+b0 %
+02
+13
+b0 4
+b0 5
+#270000
+1!
+12
+b0 5
+b0 6
+#280000
+0!
+0"
+0&
+0'
+0)
+0*
+02
+03
+b1 5
+07
+08
+0:
+0;
+b0 @
+b0 B
+#290000
+1!
+1&
+1'
+1)
+1*
+12
+b10 5
+b1 6
+17
+18
+1:
+1;
+#300000
+0!
+02
+#310000
+1!
+1+
+1-
+12
+b11 5
+b10 6
+1<
+1>
+#320000
+0!
+02
+#330000
+1!
+0&
+0'
+0)
+0*
+0+
+0-
+12
+b0 5
+b11 6
+07
+08
+0:
+0;
+0<
+0>
+#340000
+0!
+02
+#350000
+1!
+12
+b1 5
+b0 6
+b0 @
+b0 B
+#360000
+0!
+02
