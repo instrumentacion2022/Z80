@@ -8,9 +8,9 @@
 module REGALU(
 input [7:0] DATA_IN,
 input CLK,
-input LOAD_B,
-input LOAD_A_OUT,LOAD_A_IN,SEL_A_IN,SEL_A_OUT, RST_A,
-input LOAD_F_OUT, LOAD_F_IN,SEL_F_IN,SEL_F_OUT, RST_F,
+input OE_B,
+input OE_A,LOAD_A,SEL_A_IN,SEL_A_OUT, RST_A,
+input OE_F, LOAD_F,SEL_F_IN,SEL_F_OUT, RST_F,
 input [4:0] SEL,
 output [7:0] DATA_A_OUT,
 output [7:0] DATA_F_OUT
@@ -25,8 +25,8 @@ output [7:0] DATA_F_OUT
     reg [7:0] F_IN,F_BUFF;
     wire [7:0] F_OUT;
     
-    register #(.W(8)) A (.CLK(CLK),.RST_N(RST_A),.LOAD(LOAD_A_IN),.DATA_IN(A_IN),.DATA_OUT(A_OUT));
-    register #(.W(8)) F (.CLK(CLK),.RST_N(RST_F),.LOAD(LOAD_F_IN),.DATA_IN(F_IN),.DATA_OUT(F_OUT));
+    register #(.W(8)) A (.CLK(CLK),.RST_N(RST_A),.LOAD(LOAD_A),.DATA_IN(A_IN),.DATA_OUT(A_OUT));
+    register #(.W(8)) F (.CLK(CLK),.RST_N(RST_F),.LOAD(LOAD_F),.DATA_IN(F_IN),.DATA_OUT(F_OUT));
     
     always @(*) begin
         ///MUX A
@@ -38,13 +38,13 @@ output [7:0] DATA_F_OUT
         end
         //DEMUX A
         if(SEL_A_OUT) begin
-            A_BUFF <= A_OUT;
+            A_BUFF = A_OUT;
         end
         else begin
-            ALU_IA <= A_OUT;
+            ALU_IA = A_OUT;
         end
         //BUFFER B
-        if (LOAD_B) begin
+        if (OE_B) begin
             ALU_IB = DATA_IN;
         end
         else begin
@@ -59,14 +59,14 @@ output [7:0] DATA_F_OUT
         end
         //DEMUX F
         if (SEL_F_OUT) begin
-            F_BUFF <= F_OUT;
+            F_BUFF = F_OUT;
         end
         else begin
-            ALU_IF <=F_OUT;
+            ALU_IF =F_OUT;
         end
     end
-    assign DATA_A_OUT =(LOAD_A_OUT)? A_BUFF:8'hZZ;      //BUFFER A
-    assign DATA_F_OUT=(LOAD_F_OUT)? F_BUFF:8'hZZ;       //BUFFER F
+    assign DATA_A_OUT =(OE_A)? A_BUFF:8'hZZ;      //BUFFER A
+    assign DATA_F_OUT=(OE_F)? F_BUFF:8'hZZ;       //BUFFER F
     ALU ALU1 (ALU_IA,ALU_IB,ALU_IF,SEL,ALU_OA,ALU_OF);
     
     initial begin

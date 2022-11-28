@@ -3,12 +3,12 @@
 Oct 14 2022
 05:20:55
 C:/Users/Carlos/Z80/Z80.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
-C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/RALU_TB.v,1669577550,verilog,,,,RALU_TB,,,../../../../Z80.srcs/sources_1/new,,,,,
+C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/RALU_TB.v,1669593781,verilog,,,,RALU_TB,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/TestBench_ALU.v,1668989895,verilog,,,,TestBench_ALU,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/Z80CU_TB.v,1669331897,verilog,,,,Z80CU_TB,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/ALU.v,1669580686,verilog,,C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/REGALU.v,C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/NEM.vh,ALU,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/NEM.vh,1668931683,verilog,,,,,,,,,,,,
-C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/REGALU.v,1669571467,verilog,,C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/register.v,,REGALU,,,../../../../Z80.srcs/sources_1/new,,,,,
+C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/REGALU.v,1669601808,verilog,,C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/register.v,,REGALU,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/Z80CU.v,1669330995,verilog,,C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/Z80CU_TB.v,,Z80CU,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/register.v,1668093442,verilog,,C:/Users/Carlos/Z80/Z80.srcs/sim_1/new/RALU_TB.v,,register,,,../../../../Z80.srcs/sources_1/new,,,,,
 C:/Users/Carlos/Z80/Z80.srcs/sources_1/new/registerfile.v,1668748211,verilog,,,,registerfile,,,../../../../Z80.srcs/sources_1/new,,,,,

@@ -45,7 +45,7 @@ LD_FI=1;
 
 
 //Cargar Dato a A
-DATA_IN = 8'hFF;
+DATA_IN = 8'h0F;
 SEL_AI=1;
 LD_AI = 1;
 LD_B = 0;
@@ -54,7 +54,7 @@ SEL_AO = 0;
 
  #20;
  //Guardas valor en A
-DATA_IN = 8'hFF;
+DATA_IN = 8'h0F;
 SEL_AI=1;
 LD_AI = 0;
 LD_B = 0;
@@ -76,7 +76,6 @@ LD_AI = 1;
 LD_B = 1;
 SEL_AO = 1;
 #20;
-
 
  end
  
