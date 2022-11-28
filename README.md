@@ -9,12 +9,24 @@ Implementación del z80 en Verilog
 
 ![imagen](https://user-images.githubusercontent.com/117603745/204180242-6976b357-0b7a-4f29-b4e8-b5c0a2873969.png)
 
-La ALU
+La ALU cuenta con 20 operaciones aritméticas y lógicas, las cuales son:
+
+- Suma
+- Suma con acarreo
+- Resta
+- Resta con acarreo(Bit de prestado)
+- AND
+- OR
+- XOR
+- Comparación
+- Incremento
+- Decremento
+- Rotaciones
+- Corrimientos
 
 ## Testbench
+### ALU
+Para probar la ALU se hizo un testbech que comparaba el resultado calculado con la ALU  y el resultado de un archivo externo(Llamado en el proyecto como "Datain.csv").Este archivo fue generado mediante un excel calculando los resultados y banderas con funciones propias de excel.
 
-# Simulación
-En la primera suma se provoca el error al proposito (A4h) 164 más (94h) 184 es 312 que en 8 bits es 56 (38h)
-![imagen](https://user-images.githubusercontent.com/117603745/201577391-dc2cde70-e3f4-49ae-ab60-abc5fda9744d.png)
-
+### ALU con registros A y F
 
